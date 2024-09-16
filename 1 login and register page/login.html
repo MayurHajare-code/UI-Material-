@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(to left, rgb(228, 97, 240), blueviolet);
+            height: auto;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .form-section {
+            background-color: rgb(255, 255, 255);
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+            margin: 20vh auto;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        img {
+            height: auto;
+            width: 100px;
+            border-radius: 50%;
+            border: 2px solid black;
+            position: absolute;
+            top: -50px;
+            transform: translateX(30%);
+        }
+
+        /*form {
+             background-color: rgb(255, 255, 255);
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+            margin: 20vh auto;
+            border-radius: 10px;
+            position: relative; 
+        }
+
+         h2{
+            font-size: 30px;
+            margin: 50px 0px 10px;
+            color: rgb(46, 43, 43);
+            font-weight: bolder;
+            text-transform: capitalize;
+        } */
+
+        .login-btn,
+        .register-btn {
+            background-color: blueviolet;
+            color: white;
+            padding: 8px 20px;
+            margin: 50px 0px 10px;
+            font-size: 15px;
+            font-weight: bolder;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .input {
+            width: 300px;
+            line-height: 25px;
+            margin: 10px;
+        }
+
+        input[placeholder] {
+            padding: 3px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: rgb(55, 52, 52);
+        }
+
+        .btn {
+            background-image: linear-gradient(to left, rgb(228, 97, 240), blueviolet);
+            color: white;
+            padding: 8px 25px;
+            margin: 7px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.7s, color 0.7s, border 0.7s;
+        }
+
+        .btn:hover {
+            background-image: linear-gradient(to right, rgb(228, 97, 240), blueviolet);
+            color: rgb(0, 0, 0);
+            padding: 8px 25px;
+            margin: 7px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 15px;
+            /* border: 0.5px solid blueviolet; */
+            cursor: pointer;
+            box-shadow: 5px 5px 10px rgb(161, 159, 159);
+        }
+
+        p {
+            font-size: 15px;
+            color: rgb(55, 52, 52);
+        }
+
+        .register-link {
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            color: blueviolet;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn-active {
+
+            background-color: blueviolet;
+            color: rgb(255, 255, 255);
+            border: none;
+        }
+
+        .btn-inactive {
+            background-color: white;
+            color: blueviolet;
+            border: 1px solid blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-section">
+        <img src="./images.png" alt="">
+        <button class="login-btn .btn-active">Login</button>
+        <button class="register-btn btn-inactive">Register</button>
+
+        <form action="./index.html" method="get" class="loginForm">
+            <!-- <h2>Login</h2> -->
+            <input type="email" placeholder="Email" name="email" class="input">
+            <br>
+            <input type="password" placeholder="Password" name="password" class="input">
+            <br>
+            <input type="submit" class="btn" value="Login">
+            <p>Doesn't have an account at yet? <a href="#" class="register-link" id="register-link">Register here</a>
+            </p>
+        </form>
+
+        <form action="#" method="post" class="registerForm hidden">
+            <!-- <h2>Register</h2> -->
+            <input type="text" placeholder="Name" name="name" class="input">
+            <br>
+            <input type="email" placeholder="Email" name="email" class="input">
+            <br>
+            <input type="password" placeholder="Password" name="password" class="input">
+            <br>
+            <input type="submit" class="btn" value="Register">
+            <!-- <p>have an account at yet? <a href="./login.html">Login here</a></p> -->
+        </form>
+
+    </div>
+
+    <script>
+        const loginBtn = document.querySelector('.login-btn');
+        const registerBtn = document.querySelector('.register-btn');
+        const registerLink = document.getElementById('register-link'); // Add this line
+
+        const loginForm = document.querySelector('.loginForm');
+        const registerForm = document.querySelector('.registerForm');
+
+        const showLoginForm = () => {
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+            loginBtn.classList.add('btn-active');
+            loginBtn.classList.remove('btn-inactive');
+            registerBtn.classList.add('btn-inactive');
+            registerBtn.classList.remove('btn-active');
+        };
+
+        const showRegisterForm = () => {
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+            registerBtn.classList.add('btn-active');
+            registerBtn.classList.remove('btn-inactive');
+            loginBtn.classList.add('btn-inactive');
+            loginBtn.classList.remove('btn-active');
+        };
+
+        loginBtn.addEventListener('click', showLoginForm);
+        registerBtn.addEventListener('click', showRegisterForm);
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default link behavior
+            showRegisterForm(); // Show the register form
+        });
+
+        const registerFormElement = document.querySelector('.registerForm');
+        registerFormElement.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            showLoginForm();
+        });
+
+    </script>
+
+</body>
+
+</html>
