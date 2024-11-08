@@ -11,15 +11,16 @@ section {
 }
 
 p {
-      font-size: 15px;
+      font-size: 18px;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-weight: 100;
       text-align: justify;
 }
 
 h2 {
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold;
+      margin: 0px 0px 20px;
 }
 
 
@@ -74,7 +75,7 @@ h2 {
       height: auto;
       padding: 20px;
       position: absolute;
-      top: 40%;
+      top: 35%;
       left: 10%;
       color: white;
 }
@@ -82,7 +83,7 @@ h2 {
 
 .btn {
       background-color: pink;
-      padding: 3px 15px;
+      padding: 5px 15px;
       border: 0.5px solid gray;
       border-radius: 25px;
       color: rgb(39, 37, 37);
@@ -95,9 +96,29 @@ h2 {
       width: 50% !important;
 }
 
+
+@media (max-width:750px) {
+      .data-hide {
+            display: none;
+      }
+
+      #header {
+            height: 50vh;
+            width: 100%;
+            background-image: url('../Images/bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 0 5%;
+      }
+
+}
+
+
 @media (max-width:992px) {
       #header {
-            height: 60vh;
+            height: 70vh;
             width: 100%;
             background-image: url('../Images/bg.jpg');
             background-repeat: no-repeat;
@@ -112,23 +133,23 @@ h2 {
             height: auto;
             padding: 0px;
             position: absolute;
-            top: 30%;
+            top: 25%;
             left: 10%;
             color: white;
       }
 
       h2 {
-            font-size: 15px;
+            font-size: 20px;
       }
 
       h4 {
-            font-size: 12px;
+            font-size: 17px;
       }
 
       p,
       span,
       .card-title {
-            font-size: 10px;
+            font-size: 15px;
       }
 
       .btn {
@@ -145,6 +166,10 @@ h2 {
             width: 70% !important;
       }
 
+      #about .img,
+      #contact .img {
+            padding: 0px 0%;
+      }
 }
 
 .card {
@@ -211,7 +236,7 @@ h2 {
 
 #contact span i {
       font-size: 15px;
-      margin: 5px 10px ;
+      margin: 5px 10px;
 }
 
 footer {
@@ -225,7 +250,8 @@ footer img {
       display: block;
 }
 
-footer i, a {
+footer i,
+a {
       font-size: 13px;
       color: white;
       text-decoration: none;
@@ -242,3 +268,24 @@ body {
       bottom: 10px;
       right: 10%;
   } */
+
+/* .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 300px;
+      z-index: 999;
+      background-color: rgb(0, 0, 0);
+      box-shadow: -10px 0 10px rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+  } */
+
+#about .img,
+#contact .img {
+      padding: 0px 5%;
+}
